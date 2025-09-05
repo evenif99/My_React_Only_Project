@@ -1,6 +1,6 @@
-function App(){
-    function multiply(num){
-        return (10*num).toFixed(3);
+function App() {
+    function multiply(num) {
+        return (10 * num).toFixed(3);
     }
 
     console.log('자바 스크립트 배열 관련 map 함수');
@@ -14,7 +14,7 @@ function App(){
     console.log(result02);
 
     console.log('\nmap 함수와 화살표 함수를 조합합니다.');
-    const twotimes = (n) => 2*n;
+    const twotimes = (n) => 2 * n;
     const result03 = numbers.map(twotimes);
     console.log(result03);
 
@@ -29,23 +29,23 @@ function App(){
         <li key={index}>맛있는 {item} 좋아요.</li>
     ));
     console.log(result05);
-    
+
     const result06 = foods.map((item, index) => {
-        if(index % 2 === 0){
+        if (index % 2 === 0) {
             return <li key={index}>맛있는 {item} 좋아요.</li>;
-        }else{
+        } else {
             return <li key={index}>오늘은 {item}을 먹습니다.</li>;
         }
     });
 
     const words = ['love', 'peace', 'hello', 'sea', 'identification', 'create', 'table']
     console.log('화살표 함수와 String 객체의 length() 함수를 같이 사용해 봅니다.');
-    
+
     const mylength = 4; // 허용 가능한 문자열의 최대 길이
     let min_length = []; // 비어 있는 배열
 
     words.map((sentence) => {
-        if(sentence.length <= mylength){
+        if (sentence.length <= mylength) {
             min_length.push(sentence);
         }
         return 0;
@@ -54,18 +54,18 @@ function App(){
     console.log(min_length);
 
     // 고객 목록(객체 여러 개로 구성된 배열)
-    const customers =[
-        { firstname:'민정', lastname:'김', age:10 },
-        { firstname:'효리', lastname:'최', age:20 },
-        { firstname:'지영', lastname:'강', age:30 }
+    const customers = [
+        { firstname: '민정', lastname: '김', age: 10 },
+        { firstname: '효리', lastname: '최', age: 20 },
+        { firstname: '지영', lastname: '강', age: 30 }
     ];
 
     // 고객 1명 정보를 <li> 태그로 변환해주는 함수
-    function getCustomerOne(person, index){
+    function getCustomerOne(person, index) {
         // 김 민정님, 나이 : ㅇㅇ살(미성년자)
         const isAdult = person.age >= 19 ? '성인' : '미성년자';
 
-        return(
+        return (
             <li key={index}>
                 {person.lastname} {person.firstnamename}님, 나이 : {person.age}살({isAdult})
             </li>
@@ -73,7 +73,7 @@ function App(){
     };
 
     // 고객들을 목록 형식으로 만든 컴포넌트
-    const CustomerList =() =>{
+    const CustomerList = () => {
         const mylist = customers.map(getCustomerOne);
         return <ol>{mylist}</ol>;
     };
@@ -84,25 +84,25 @@ function App(){
     // 겨울 품목 리스트를 위한 컴포넌트
     const WinterItems = () => {
         const items = [
-            { name:'눈사람', description:'겨울철에 만드는 재미있는 친구' },
-            { name:'얼음', description:'차갑고 단단한 겨울의 상징' },
-            { name:'눈', description:'하얗게 내리는 겨울 풍경' },
-            { name:'바람', description:'차가운 겨울 바람' }
+            { name: '눈사람', description: '겨울철에 만드는 재미있는 친구' },
+            { name: '얼음', description: '차갑고 단단한 겨울의 상징' },
+            { name: '눈', description: '하얗게 내리는 겨울 풍경' },
+            { name: '바람', description: '차가운 겨울 바람' }
         ];
 
-        const itemList = items.map((item, index)=>(
+        const itemList = items.map((item, index) => (
             <li key={index}>
                 <strong>{item.name}</strong>
                 <p>{item.description}</p>
             </li>
         ));
 
-        return(
+        return (
             <ul>{itemList}</ul>
         );
     };
 
-    return(
+    return (
         <div className="App">
             <h3>단순 출력</h3>
             <ul>{result05}</ul>

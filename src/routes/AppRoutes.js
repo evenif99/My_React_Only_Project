@@ -23,28 +23,39 @@ import AppUseProps from './../components/ch03.component/use_props';
 import AppMakeTable01 from './../components/ch03.component/array_and_table_01';
 import AppMakeTable02 from './../components/ch03.component/array_and_table_02';
 
-function AppRoutes() {
-    return (
-        <Routes>
-            {/* element 속성에는 컴포넌트 자체가 아니라 JSX 요소를 넣어야 합니다. */}
-            <Route path='/' element={<AppLetConst />} />
-            <Route path='/let_const' element={<AppLetConst />} />
-            <Route path='//template_string' element={<AppTemplateString />} />
-            <Route path='/make_subject_list' element={<AppSubjectList />} />
-            <Route path='/make_function' element={<AppMakeFunction />} />
-            <Route path='/arrow_function' element={<AppArrowFunction />} />
-            <Route path='/array_map' element={<AppArrayMap />} />
-            <Route path='/spread_operator' element={<AppSpreadOperator />} />
+// ch04장
+import AppClickEvent from './../components/ch04.event_handling/click_event';
+import AppChangeEvent from './../components/ch04.event_handling/change_event';
+import AppMouseEvent from './../components/ch04.event_handling/mouse_event';
+import AppKeyEvent from './../components/ch04.event_handling/key_event';
 
-            <Route path='/components01' element={<AppClassComponent />} />
-            <Route path='/components02' element={<AppFunctionComponent />} />
-            <Route path='/component_separate' element={<AppComponentSeperate />} />
-            <Route path='/file_separator' element={<AppFileSeparator />} />
-            <Route path='/use_props' element={<AppUseProps />} />
-            <Route path='/array_and_table_01' element={<AppMakeTable01 />} />
-            <Route path='/array_and_table_02' element={<AppMakeTable02 />} />
-        </Routes>
-    );
-};
+    function AppRoutes() {
+        return (
+            <Routes>
+                {/* element 속성에는 컴포넌트 자체가 아니라 JSX 요소를 넣어야 합니다. */}
+                <Route path='/' element={<AppLetConst />} />
+                <Route path='/let_const' element={<AppLetConst />} />
+                <Route path='//template_string' element={<AppTemplateString />} />
+                <Route path='/make_subject_list' element={<AppSubjectList />} />
+                <Route path='/make_function' element={<AppMakeFunction />} />
+                <Route path='/arrow_function' element={<AppArrowFunction />} />
+                <Route path='/array_map' element={<AppArrayMap />} />
+                <Route path='/spread_operator' element={<AppSpreadOperator />} />
+
+                <Route path='/components01' element={<AppClassComponent />} />
+                <Route path='/components02' element={<AppFunctionComponent />} />
+                <Route path='/component_separate' element={<AppComponentSeperate />} />
+                <Route path='/file_separator' element={<AppFileSeparator />} />
+                <Route path='/use_props' element={<AppUseProps />} />
+                <Route path='/array_and_table_01' element={<AppMakeTable01 />} />
+                <Route path='/array_and_table_02' element={<AppMakeTable02 />} />
+
+                <Route path='/click_event' element={<AppClickEvent />} />
+                <Route path='/change_event' element={<AppChangeEvent />} />
+                <Route path='/mouse_event' element={<AppMouseEvent />} />
+                <Route path='/key_event' element={<AppKeyEvent />} />
+            </Routes>
+        );
+    };
 
 export default AppRoutes;

@@ -3,7 +3,7 @@
 // npm install react-router-dom 엔터
 import { Routes, Route } from 'react-router-dom';
 
-// ch02 장
+// ch02
 // 기호 .는 현재 폴더, ..는 상위 폴더, /는 폴더 구분자
 //import 앱이름 from '전체경로/파일명'
 import AppLetConst from './../components/ch02.es6_syntax/let_const';
@@ -14,7 +14,7 @@ import AppArrowFunction from './../components/ch02.es6_syntax/arrow_function';
 import AppArrayMap from './../components/ch02.es6_syntax/array_map';
 import AppSpreadOperator from './../components/ch02.es6_syntax/spread_operator';
 
-// ch03장
+// ch03
 import AppClassComponent from './../components/ch03.component/components01';
 import AppFunctionComponent from './../components/ch03.component/components02';
 import AppComponentSeperate from './../components/ch03.component/component_separate';
@@ -23,43 +23,56 @@ import AppUseProps from './../components/ch03.component/use_props';
 import AppMakeTable01 from './../components/ch03.component/array_and_table_01';
 import AppMakeTable02 from './../components/ch03.component/array_and_table_02';
 
-// ch04장
+// ch04
 import AppClickEvent from './../components/ch04.event_handling/click_event';
 import AppChangeEvent from './../components/ch04.event_handling/change_event';
 import AppMouseEvent from './../components/ch04.event_handling/mouse_event';
 import AppKeyEvent from './../components/ch04.event_handling/key_event';
 import AppComboChange from '../components/ch04.event_handling/combo_change';
-import AppComboChangeAnswer from '../components/ch04.event_handling/combo_change_answer';
+import AppSubmitEvent from '../components/ch04.event_handling/submit_event';
 
-    function AppRoutes() {
-        return (
-            <Routes>
-                {/* element 속성에는 컴포넌트 자체가 아니라 JSX 요소를 넣어야 합니다. */}
-                <Route path='/' element={<AppLetConst />} />
-                <Route path='/let_const' element={<AppLetConst />} />
-                <Route path='//template_string' element={<AppTemplateString />} />
-                <Route path='/make_subject_list' element={<AppSubjectList />} />
-                <Route path='/make_function' element={<AppMakeFunction />} />
-                <Route path='/arrow_function' element={<AppArrowFunction />} />
-                <Route path='/array_map' element={<AppArrayMap />} />
-                <Route path='/spread_operator' element={<AppSpreadOperator />} />
+// ch05
+import AppUseState01 from './../components/ch05.hooks/use_state_01';
+import AppUseState02 from './../components/ch05.hooks/use_state_02';
+import AppUseState03 from './../components/ch05.hooks/use_state_03';
 
-                <Route path='/components01' element={<AppClassComponent />} />
-                <Route path='/components02' element={<AppFunctionComponent />} />
-                <Route path='/component_separate' element={<AppComponentSeperate />} />
-                <Route path='/file_separator' element={<AppFileSeparator />} />
-                <Route path='/use_props' element={<AppUseProps />} />
-                <Route path='/array_and_table_01' element={<AppMakeTable01 />} />
-                <Route path='/array_and_table_02' element={<AppMakeTable02 />} />
+function AppRoutes() {
+    return (
+        <Routes>
+            {/* element 속성에는 컴포넌트 자체가 아니라 JSX 요소를 넣어야 합니다. */}
+            {/* ch02 */}
+            <Route path='/' element={<AppLetConst />} />
+            <Route path='/let_const' element={<AppLetConst />} />
+            <Route path='//template_string' element={<AppTemplateString />} />
+            <Route path='/make_subject_list' element={<AppSubjectList />} />
+            <Route path='/make_function' element={<AppMakeFunction />} />
+            <Route path='/arrow_function' element={<AppArrowFunction />} />
+            <Route path='/array_map' element={<AppArrayMap />} />
+            <Route path='/spread_operator' element={<AppSpreadOperator />} />
 
-                <Route path='/click_event' element={<AppClickEvent />} />
-                <Route path='/change_event' element={<AppChangeEvent />} />
-                <Route path='/mouse_event' element={<AppMouseEvent />} />
-                <Route path='/key_event' element={<AppKeyEvent />} />
-                <Route path='/combo_change' element={<AppComboChange />} />
-                <Route path='/combo_change_answer' element={<AppComboChangeAnswer />} />
-            </Routes>
-        );
-    };
+            {/* ch03 */}
+            <Route path='/components01' element={<AppClassComponent />} />
+            <Route path='/components02' element={<AppFunctionComponent />} />
+            <Route path='/component_separate' element={<AppComponentSeperate />} />
+            <Route path='/file_separator' element={<AppFileSeparator />} />
+            <Route path='/use_props' element={<AppUseProps />} />
+            <Route path='/array_and_table_01' element={<AppMakeTable01 />} />
+            <Route path='/array_and_table_02' element={<AppMakeTable02 />} />
+
+            {/* ch04 */}
+            <Route path='/click_event' element={<AppClickEvent />} />
+            <Route path='/change_event' element={<AppChangeEvent />} />
+            <Route path='/mouse_event' element={<AppMouseEvent />} />
+            <Route path='/key_event' element={<AppKeyEvent />} />
+            <Route path='/combo_change' element={<AppComboChange />} />
+            <Route path='/submit_event' element={<AppSubmitEvent />} />
+
+            {/* ch05 */}
+            <Route path='/use_state_01' element={<AppUseState01 />} />
+            <Route path='/use_state_02' element={<AppUseState02 />} />
+            <Route path='/use_state_03' element={<AppUseState03 />} />
+        </Routes>
+    );
+};
 
 export default AppRoutes;

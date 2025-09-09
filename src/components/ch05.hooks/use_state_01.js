@@ -8,11 +8,11 @@ function App() { // 생성일 : 9월 8일
 
     const ClickEvent = () => {
         console.log(`현재 색상 : ${color}`);
-        if(color === 'red'){
+        if (color === 'red') {
             setColor('blue');
             setName('크로와상');
             setImage('croissant_01.png');
-        }else{
+        } else {
             setColor('red');
             setName('카푸치노');
             setImage('cappuccino01.png');

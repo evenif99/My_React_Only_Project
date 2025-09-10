@@ -38,6 +38,11 @@ import AppUseState03 from './../components/ch05.hooks/use_state_03';
 import AppUseState04 from './../components/ch05.hooks/use_state_04';
 import AppUseEffect01 from './../components/ch05.hooks/use_effect_01';
 import AppUseEffect02 from './../components/ch05.hooks/use_effect_02';
+import AppUseEffect03 from './../components/ch05.hooks/use_effect_03';
+
+// ch06
+import AppCafe01 from './../components/ch06.bootstrap/coffee_bread_01/main';
+import AppCafe02 from './../components/ch06.bootstrap/coffee_bread_02/main';
 
 function AppRoutes() {
     return (
@@ -77,6 +82,11 @@ function AppRoutes() {
             <Route path='/use_state_04' element={<AppUseState04 />} />
             <Route path='/use_effect_01' element={<AppUseEffect01 />} />
             <Route path='/use_effect_02' element={<AppUseEffect02 />} />
+            <Route path='/use_effect_03' element={<AppUseEffect03 />} />
+
+            {/* ch06 */}
+            <Route path='/coffee_bread_01' element={<AppCafe01 />} />
+            <Route path='/coffee_bread_02' element={<AppCafe02 />} />
         </Routes>
     );
 };

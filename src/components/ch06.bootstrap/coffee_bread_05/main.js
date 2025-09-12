@@ -72,7 +72,7 @@ function App() {
     }
 
      /* 등록 양식에서 넘어온 신규 상품을 관리할 state 정의합니다. */
-    const [newItem, setNewItem] = useState(null);
+    // const [newItem, setNewItem] = useState(null);
 
     /* 사용자가 상품 등록 화면에서 내용을 기입하고, [등록] 버튼을 눌렀습니다. */
     const InsertData = (formData) => {
@@ -122,6 +122,7 @@ function App() {
         2. 관리해야 하므로 state으로 처리해야 함
         3. 폼 양식(상품 등록, 상품 수정 페이지)에서 카테고리를 동적으로 생성
         4. 추가/삭제 작업이 발생하면 동적으로 갱신해야 함
+        5. 상품 목록 페이지(Content)에서 카테고리 한글 이름 나오도록 수정(배열의 find() 함수)
     */
 
     const categoryList = [
@@ -152,7 +153,7 @@ function App() {
             </Card.Header>
             <Card.Body>
                 {/* onClicktoContent 프롭스가 리턴되고 난 후 ClickArrived 함수가 동작되도록 하겠습니다. */}
-                <Content contents={products} onClicktoContent={ClickArrived} />
+                <Content contents={products} onClicktoContent={ClickArrived} categories={categories} />
             </Card.Body>
             <Card.Body>
                 <Switcher

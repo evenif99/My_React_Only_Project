@@ -1,6 +1,6 @@
 import { Table } from "react-bootstrap";
 
-function App({ contents, onClicktoContent }) {
+function App({ contents, onClicktoContent, categories }) {
 
     /* 테이블 특정 행의 셀 1개를 클릭했습니다. */
     const ClickItem = (event) => {
@@ -14,17 +14,30 @@ function App({ contents, onClicktoContent }) {
     const ProductList = () => {
         return (
             <tbody>
-                {contents.map((item, index) => (
-                    <tr id={item.id} key={index}>
-                        <td align="center" onClick={ClickItem}>{item.name}</td>
-                        {/* 숫자 형식으로 바꾼 다음, 3자리 마다 콤마 유형을 추가합니다. */}
-                        <td align="right" onClick={ClickItem}>{Number(item.price).toLocaleString()} 원</td>
-                        <td align="center" onClick={ClickItem}>{item.category === 'bread' ? '빵' : '음료수'}</td>
-                    </tr>
-                ))}
+                {contents.map((item, index) => {
+                    /* find 함수를 사용하여 매칭 되는 카테고리를 찾습니다. */
+                    const match = categories.find((cate) => {
+                        console.log(`cate.english : ${cate.english}, item.category : ${item.category}`);
+                        return cate.english === item.category;
+                    });
+
+                    return (
+                        <tr id={item.id} key={index}>
+                            <td align="center" onClick={ClickItem}>{item.name}</td>
+
+                            {/* 숫자 형식으로 바꾼 다음, 3자리 마다 콤마 유형을 추가합니다. */}
+                            <td align="right" onClick={ClickItem}>{Number(item.price).toLocaleString()} 원</td>
+
+                            {/* match가 의미 있는 데이터이면 "한글"을, 아니면 "원래 값"을 표시함 */}
+                            <td align="center" onClick={ClickItem}>
+                                {match ? match.korean : item.category}
+                            </td>
+                        </tr>
+                    );
+                })}
             </tbody>
         );
-    }
+    };
 
     return (
         <>

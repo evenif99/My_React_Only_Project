@@ -34,54 +34,58 @@ function App({ product, onSubmitUpdate }) {
 
         /* 전개 연산자를 사용하여 과거 데이터를 보존하되, 신규 바뀐 정보만 다시 갱신하기 */
         /* previous 변수는 리액트가 자동으로 넣어주는 값으로, 이름은 개발자 마음대로 지정하면 됩니다. */
-        setFormData((previous) => ({ ...previous, [name]: value }));
+        //setFormData((previous) => ({ ...previous, [name]: value }));
+        setFormData((previous) => {
+            const updated = { ...previous, [name]: value };
+            console.log("갱신된 값:", updated);
+            return updated;
+        });
+
+        return (
+            <div >
+                <h2>상품 {comment}</h2>
+                <form action="#" onSubmit={SubmittedData}>
+                    <InputGroup className="custom-input-group">
+                        <InputGroup.Text className="input-group-text">아이디</InputGroup.Text>
+
+                        <input name="id" type="hidden" onChange={InputChange} value={formData.id} />
+
+                        <Form.Control type="text" name="fakeid" onChange={InputChange} value={formData.id} disabled />
+                    </InputGroup>
+                    <InputGroup className="custom-input-group">
+                        <InputGroup.Text className="input-group-text">이름</InputGroup.Text>
+                        <Form.Control type="text" name="name" onChange={InputChange} value={formData.name} />
+                    </InputGroup>
+                    <InputGroup className="custom-input-group">
+                        <InputGroup.Text className="input-group-text">가격</InputGroup.Text>
+                        <Form.Control type="text" name="price" onChange={InputChange} value={formData.price} />
+                    </InputGroup>
+                    <InputGroup className="custom-input-group">
+                        <InputGroup.Text className="input-group-text">카테고리</InputGroup.Text>
+                        <Form.Select name="category" onChange={InputChange}>
+                            <option value="-">-- 카테고리를 선택해 주세요.</option>
+                            <option value="bread" selected={formData.category === 'bread'}>빵</option>
+                            <option value="beverage" selected={formData.category === 'beverage'}>음료수</option>
+                        </ Form.Select>
+                    </InputGroup>
+                    <InputGroup className="custom-input-group">
+                        <InputGroup.Text className="input-group-text">재고</InputGroup.Text>
+                        <Form.Control type="text" name="stock" onChange={InputChange} value={formData.stock} />
+                    </InputGroup>
+                    <InputGroup className="custom-input-group">
+                        <InputGroup.Text className="input-group-text">이미지</InputGroup.Text>
+                        <Form.Control type="text" name="image" onChange={InputChange} value={formData.image} />
+                    </InputGroup>
+                    <InputGroup className="custom-input-group">
+                        <InputGroup.Text className="input-group-text">세부 설명</InputGroup.Text>
+                        <Form.Control as="textarea" name="description" onChange={InputChange} value={formData.description} />
+                    </InputGroup>
+                    <div className="d-grid gap-2">
+                        <Button type="submit">{comment}</Button>
+                    </div>
+                </form>
+            </div>
+        );
     }
-
-    return (
-        <div >
-            <h2>상품 {comment}</h2>
-            <form action="#" onSubmit={SubmittedData}>
-                <InputGroup className="custom-input-group">
-                    <InputGroup.Text className="input-group-text">아이디</InputGroup.Text>
-
-                    <input name="id" type="hidden" onChange={InputChange} value={product.id} />
-
-                    <Form.Control type="text" name="fakeid" onChange={InputChange} value={product.id} disabled />
-                </InputGroup>
-                <InputGroup className="custom-input-group">
-                    <InputGroup.Text className="input-group-text">이름</InputGroup.Text>
-                    <Form.Control type="text" name="name" onChange={InputChange} value={product.name} />
-                </InputGroup>
-                <InputGroup className="custom-input-group">
-                    <InputGroup.Text className="input-group-text">가격</InputGroup.Text>
-                    <Form.Control type="text" name="price" onChange={InputChange} value={product.price} />
-                </InputGroup>
-                <InputGroup className="custom-input-group">
-                    <InputGroup.Text className="input-group-text">카테고리</InputGroup.Text>
-                    <Form.Select name="category" onChange={InputChange}>
-                        <option value="-">-- 카테고리를 선택해 주세요.</option>
-                        <option value="bread" selected={product.category === 'bread'}>빵</option>
-                        <option value="beverage" selected={product.category === 'beverage'}>음료수</option>
-                    </ Form.Select>
-                </InputGroup>
-                <InputGroup className="custom-input-group">
-                    <InputGroup.Text className="input-group-text">재고</InputGroup.Text>
-                    <Form.Control type="text" name="stock" onChange={InputChange} value={product.stock} />
-                </InputGroup>
-                <InputGroup className="custom-input-group">
-                    <InputGroup.Text className="input-group-text">이미지</InputGroup.Text>
-                    <Form.Control type="text" name="image" onChange={InputChange} value={product.image} />
-                </InputGroup>
-                <InputGroup className="custom-input-group">
-                    <InputGroup.Text className="input-group-text">세부 설명</InputGroup.Text>
-                    <Form.Control as="textarea" name="description" onChange={InputChange} value={product.description} />
-                </InputGroup>
-                <div className="d-grid gap-2">
-                    <Button type="submit">{comment}</Button>
-                </div>
-            </form>
-        </div>
-    );
 }
-
 export default App;

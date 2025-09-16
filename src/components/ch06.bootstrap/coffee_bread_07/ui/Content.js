@@ -55,7 +55,7 @@ function App({ contents, onClicktoContent, categories, onOrderByClick, orderInfo
             onOrderByClick(target_id, orderInfo.ordering);
 
         } else { // '정렬 방식' 선택
-            onOrderByClick(target_id, orderInfo.column);
+            onOrderByClick(orderInfo.column, target_id);
         }
     }
 
@@ -65,7 +65,7 @@ function App({ contents, onClicktoContent, categories, onOrderByClick, orderInfo
 
     /* 필드 검색 */
     /* 넘겨 받은 카테고리 정보를 이용하여 동적으로 콤보 박스에 들어갈 목록들을 생성합니다 */
-    const comboCategory = categories.map((item, index) => 
+    const comboCategory = categories.map((item, index) =>
         <option key={index} value={item.english}>{item.korean}</option>
     );
 
